@@ -74,7 +74,7 @@ async def media(bot, message):
 
             for file_id, file_name, caption, file_size in collected_files:
                 size_text = get_size(file_size)
-                file_url = f"📁 [{size_text}]👇\n<a href='https://t.me/{temp.U_NAME}?start=files_{file_id}'>{file_name}</a>"
+                file_url = f"📁 [{size_text}]👇\n<a href='https://t.me/{temp.U_NAME}?start=files_{CHANNELS[0]}_{file_id}'>{file_name}</a>"
 
                 if imdb_info is None:
                     try:
@@ -96,7 +96,7 @@ async def media(bot, message):
                 poster_url = imdb_info.get('poster', None)
                 year = imdb_info.get('year', 'N/A')
                 
-                urls_text = "\n\n".join([f"📁 [{get_size(size)}]👇\n<a href='https://t.me/{temp.U_NAME}?start=files_{file_id}'>{file_name}</a>" for file_id, file_name, caption, size in collected_files])
+                urls_text = "\n\n".join([f"📁 [{get_size(size)}]👇\n<a href='https://t.me/{temp.U_NAME}?start=files_{CHANNELS[0]}_{file_id}'>{file_name}</a>" for file_id, file_name, caption, size in collected_files])
 
                 language_in_caption = caption.split("Language:")[-1].strip()
                 final_caption = f"<b>🏷 Title: {title}\n🎭 Genres: {genre}\n📆 Year: {year}\n🌟 Rating: {rating}\n🔊 Language: {language_in_caption}\n\n{urls_text}</b>"
@@ -118,7 +118,7 @@ async def media(bot, message):
                                 parse_mode=enums.ParseMode.HTML
                             )
                     else:
-                        url_text = "\n\n".join([f"📁 [{get_size(size)}]👇\n<a href='https://t.me/{temp.U_NAME}?start=files_{file_id}'>{file_name}</a>" for file_id, file_name, caption, size in collected_files])
+                        url_text = "\n\n".join([f"📁 [{get_size(size)}]👇\n<a href='https://t.me/{temp.U_NAME}?start=files_{CHANNELS[0]}_{file_id}'>{file_name}</a>" for file_id, file_name, caption, size in collected_files])
                         captionn = f"<b>#Information_Not_Available\n\nTotal Files: {len(collected_files)}\n\n{url_text}</b>"
                         await bot.send_message(
                             chat_id=channel,
