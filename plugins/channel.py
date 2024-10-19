@@ -117,12 +117,12 @@ async def media(bot, message):
                                 text=final_caption,
                                 parse_mode=enums.ParseMode.HTML
                             )
-            else:
-                url_text = "\n\n".join([f"📁 [{get_size(size)}]👇\n<a href='https://t.me/{temp.U_NAME}?start=files_{file_id}'>{file_name}</a>" for file_id, file_name, caption, size in collected_files])
-                captionn = f"<b>#Information_Not_Available\n\nTotal Files: {len(collected_files)}\n\n{url_text}</b>"
-                await bot.send_message(
-                    chat_id=channel,
-                    text=captionn,
-                    parse_mode=enums.ParseMode.HTML
-                )
+                    else:
+                        url_text = "\n\n".join([f"📁 [{get_size(size)}]👇\n<a href='https://t.me/{temp.U_NAME}?start=files_{file_id}'>{file_name}</a>" for file_id, file_name, caption, size in collected_files])
+                        captionn = f"<b>#Information_Not_Available\n\nTotal Files: {len(collected_files)}\n\n{url_text}</b>"
+                        await bot.send_message(
+                            chat_id=channel,
+                            text=captionn,
+                            parse_mode=enums.ParseMode.HTML
+                        )
         collected_files = []
