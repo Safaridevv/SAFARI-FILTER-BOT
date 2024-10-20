@@ -342,6 +342,13 @@ async def start(client, message):
                     protect_content=True if pre == 'filep' else False,
                     reply_markup=reply_markup
                 )
+                filesarr.append(msg)
+            if await db.get_setting("AUTO_FILE_DELETE", default=AUTO_FILE_DELETE):
+                k = await client.send_message(chat_id = message.from_user.id, text=f"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there</i></b>")
+                await asyncio.sleep(300)
+                for x in filesarr:
+                    await x.delete()
+                await k.edit_text("<b>Your All Files/Videos is successfully deleted!!!</b>")
             return
         files_ = await get_file_details(file_id)           
         if not files_:
@@ -418,6 +425,12 @@ async def start(client, message):
             protect_content=True if pre == 'filep' else False,
             reply_markup=reply_markup
         )
+        if await db.get_setting("AUTO_FILE_DELETE", default=AUTO_FILE_DELETE):
+            del_msg=await message.reply("<b>⚠️ᴛʜɪs ғɪʟᴇ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ᴀғᴛᴇʀ 10 ᴍɪɴᴜᴛᴇs\n\nᴘʟᴇᴀsᴇ ғᴏʀᴡᴀʀᴅ ᴛʜᴇ ғɪʟᴇ sᴏᴍᴇᴡʜᴇʀᴇ ʙᴇғᴏʀᴇ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ..</b>") 
+            safari = msg
+            await asyncio.sleep(900)
+            await safari.delete() 
+            await del_msg.edit_text("<b>ʏᴏᴜʀ ғɪʟᴇ ᴡᴀs ᴅᴇʟᴇᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ ᴀғᴛᴇʀ 10 ᴍɪɴᴜᴛᴇs ᴛᴏ ᴀᴠᴏɪᴅ ᴄᴏᴘʏʀɪɢʜᴛ 📢</b>")
     except Exception as e:
         await message.reply(f"{e}")
         
@@ -1224,12 +1237,12 @@ async def set_mode(client, message):
         if len(args) == 3:
             mode_name = args[1]
             value = args[2].lower() == 'true'  # Convert string to boolean     
-            valid_modes = ["PM_FILTER", "IS_VERIFY", "LIMIT_MODE"]  
+            valid_modes = ["PM_FILTER", "IS_VERIFY", "LIMIT_MODE", "AUTO_FILE_DELETE"]  
             if mode_name in valid_modes:
                 await db.set_setting(mode_name, value)
                 await message.reply(f"{mode_name} has been set to {value}.")
             else:
-                await message.reply("Invalid mode name. Please use one of the following:\n\nPM_FILTER\n\nIS_VERIFY")
+                await message.reply("Invalid mode name. Please use one of the following:\n\nPM_FILTER\n\nIS_VERIFY\nLIMIT_MODE\nAUTO_FILE_DELETE")
         else:
             await message.reply("Please specify the mode name and 'True' or 'False' as arguments. Example: /set_value PM_FILTER True")
     except Exception as e:
@@ -1248,7 +1261,7 @@ async def set_link(client, message):
                 await db.set_setting(key, link)
                 await message.reply(f"{key} has been set to: {link}")
             else:
-                await message.reply("Invalid link name. Please use one of the following:\n\nTUTORIAL\n\nTUTORIAL2\n\nTUTORIAL3\n\nFQDN")
+                await message.reply("Invalid link name. Please use one of the following:\n\nFQDN")
         else:
             await message.reply("Please specify the key and link. Example: /set_link TUTORIAL https://t.me/c/1998895377/2184")
     except Exception as e:
