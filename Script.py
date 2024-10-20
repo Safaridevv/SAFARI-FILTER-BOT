@@ -285,6 +285,21 @@ Money heist S0E01
     ADMIC_TXT = """
 👇 ᴄᴏᴍᴍᴀɴᴅꜱ ʟɪꜱᴛ ꜰᴏʀ ᴀᴅᴍɪɴꜱ 👇
 
+• /add_premium - <code>ᴀᴅᴅ ᴀɴʏ ᴜꜱᴇʀ ᴛᴏ ᴘʀᴇᴍɪᴜᴍ.</code>
+• /remove_premium - <code>ʀᴇᴍᴏᴠᴇ ᴀɴʏ ᴜꜱᴇʀ ꜰʀᴏᴍ ᴘʀᴇᴍɪᴜᴍ.</code>
+• /premium_users - <code>ɢᴇᴛ ʟɪꜱᴛ ᴏꜰ ᴘʀᴇᴍɪᴜᴍ ᴜꜱᴇʀꜱ.</code>
+• /get_premium - <code>ɢᴇᴛ ɪɴꜰᴏ ᴏꜰ ᴀɴʏ ᴘʀᴇᴍɪᴜᴍ ᴜꜱᴇʀ.</code>
+• /restart - <code>ʀᴇꜱᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ.</code>
+• /code - ɢᴇɴᴇʀᴀᴛᴇ ʙᴏᴛ ᴘʀᴇᴍɪᴜᴍ ᴄᴏᴅᴇ
+• /clearcodes - ᴅᴇʟᴇᴛᴇ ᴀʟʟ ᴄᴏᴅᴇ 
+• /allcodes - ᴠɪᴇᴡ ᴀʟʟ ᴄᴏᴅᴇ ᴀɴᴅ ᴅᴇᴛᴀɪʟs
+• /grp_delete - ᴅᴇʟᴇᴛᴇ ᴀʟʟ ɢʀᴏᴜᴘ ғᴏʀ ᴅᴀᴛᴀʙᴀsᴇ
+• /setlink - sᴇᴛ ғǫᴅɴ ᴜʀʟ
+• /set_value - set value True False in Direct Bot
+"""
+    ADMIC_TEX2T = """
+👇 ᴄᴏᴍᴍᴀɴᴅꜱ ʟɪꜱᴛ ꜰᴏʀ ᴀᴅᴍɪɴꜱ 👇
+
 • /logs - <code>ɢᴇᴛ ᴛʜᴇ ʀᴇᴄᴇɴᴛ ᴇʀʀᴏʀꜱ.</code>
 • /delete - <code>ᴅᴇʟᴇᴛᴇ ᴀ ꜱᴘᴇᴄɪꜰɪᴄ ꜰɪʟᴇ ꜰʀᴏᴍ ᴅʙ.</code>
 • /users - <code>ɢᴇᴛ ʟɪꜱᴛ ᴏꜰ ᴍʏ ᴜꜱᴇʀꜱ ᴀɴᴅ ɪᴅꜱ.</code>
@@ -299,20 +314,8 @@ Money heist S0E01
 • /deletefiles - <code>ᴅᴇʟᴇᴛᴇ CᴀᴍRɪᴘ ᴀɴᴅ PʀᴇDVD ғɪʟᴇs ғʀᴏᴍ ᴛʜᴇ ʙᴏᴛ's ᴅᴀᴛᴀʙᴀsᴇ.</code>
 • /deleteall - ᴅᴇʟᴇᴛᴇ ᴀʟʟ ɪɴᴅᴇxᴇs ғɪʟᴇs
 • /send - <code>ꜱᴇɴᴅ ᴍᴇꜱꜱᴀɢᴇ ᴛᴏ ᴀ ᴘᴀʀᴛɪᴄᴜʟᴀʀ ᴜꜱᴇʀ.</code>
-• /add_premium - <code>ᴀᴅᴅ ᴀɴʏ ᴜꜱᴇʀ ᴛᴏ ᴘʀᴇᴍɪᴜᴍ.</code>
-• /remove_premium - <code>ʀᴇᴍᴏᴠᴇ ᴀɴʏ ᴜꜱᴇʀ ꜰʀᴏᴍ ᴘʀᴇᴍɪᴜᴍ.</code>
-• /premium_users - <code>ɢᴇᴛ ʟɪꜱᴛ ᴏꜰ ᴘʀᴇᴍɪᴜᴍ ᴜꜱᴇʀꜱ.</code>
-• /get_premium - <code>ɢᴇᴛ ɪɴꜰᴏ ᴏꜰ ᴀɴʏ ᴘʀᴇᴍɪᴜᴍ ᴜꜱᴇʀ.</code>
-• /restart - <code>ʀᴇꜱᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ.</code>
-• /code - ɢᴇɴᴇʀᴀᴛᴇ ʙᴏᴛ ᴘʀᴇᴍɪᴜᴍ ᴄᴏᴅᴇ
-• /clearcodes - ᴅᴇʟᴇᴛᴇ ᴀʟʟ ᴄᴏᴅᴇ 
-• /allcodes - ᴠɪᴇᴡ ᴀʟʟ ᴄᴏᴅᴇ ᴀɴᴅ ᴅᴇᴛᴀɪʟs
-• /grp_delete - ᴅᴇʟᴇᴛᴇ ᴀʟʟ ɢʀᴏᴜᴘ ғᴏʀ ᴅᴀᴛᴀʙᴀsᴇ
-• /setlink - sᴇᴛ ғǫᴅɴ ᴜʀʟ
-• /set_value - set value True False in Direct Bot
 """
-
-   
+    
     PREMIUM_CMD = """<b>
 💵 <i> ᴘʀᴇᴍɪᴜᴍ ᴘʟᴀɴs </ɪ>
 
