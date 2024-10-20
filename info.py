@@ -84,6 +84,8 @@ TUTORIAL = environ.get('TUTORIAL', 'https://t.me/shdjekkw')
 TUTORIAL2 = environ.get('TUTORIAL2', 'https://t.me/hejejje')
 TUTORIAL3 = environ.get('TUTORIAL3', 'https://t.me/safabsovhwi3')
 
+# auto files delete
+AUTO_FILE_DELETE = is_enabled((environ.get('AUTO_FILE_DELETE', "True")), False)
 
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '-1001998895377').split()]
 MAX_B_TN = environ.get("MAX_B_TN", "7")
