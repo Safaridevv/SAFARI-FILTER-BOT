@@ -309,6 +309,7 @@ Money heist S0E01
 • /allcodes - ᴠɪᴇᴡ ᴀʟʟ ᴄᴏᴅᴇ ᴀɴᴅ ᴅᴇᴛᴀɪʟs
 • /grp_delete - ᴅᴇʟᴇᴛᴇ ᴀʟʟ ɢʀᴏᴜᴘ ғᴏʀ ᴅᴀᴛᴀʙᴀsᴇ
 • /setlink - sᴇᴛ ғǫᴅɴ ᴜʀʟ
+• /set_value - set value True False in Direct Bot
 """
 
    
