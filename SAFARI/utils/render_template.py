@@ -7,20 +7,18 @@ from SAFARI.utils.exceptions import InvalidHash
 import urllib.parse
 import logging
 import aiohttp
-from database.users_chats_db import db
 
 
 async def render_page(id, secure_hash, src=None):
     file = await SafariBot.get_messages(int(BIN_CHANNEL), int(id))
     file_data = await get_file_ids(SafariBot, int(BIN_CHANNEL), int(id))
-    db_url = await db.get_setting("FQDN", default=URL)
     if file_data.unique_id[:6] != secure_hash:
         logging.debug(f"link hash: {secure_hash} - {file_data.unique_id[:6]}")
         logging.debug(f"Invalid hash for message with - ID {id}")
         raise InvalidHash
 
     src = urllib.parse.urljoin(
-        db_url,
+        URL,
         f"{id}/{urllib.parse.quote_plus(file_data.file_name)}?hash={secure_hash}",
     )
 
