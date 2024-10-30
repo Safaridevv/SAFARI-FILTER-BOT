@@ -1247,23 +1247,3 @@ async def set_mode(client, message):
             await message.reply("Please specify the mode name and 'True' or 'False' as arguments. Example: /set_value PM_FILTER True")
     except Exception as e:
         await message.reply(f"An error occurred: {e}")
-
-@Client.on_message(filters.command("setlink") & filters.user(ADMINS))
-async def set_link(client, message):
-    try:
-        args = message.text.split()
-        if len(args) == 3:
-            key = args[1]
-            link = args[2]
-            
-            valid_key = ["FQDN"]  
-            if key in valid_key:
-                await db.set_setting(key, link)
-                await message.reply(f"{key} has been set to: {link}")
-            else:
-                await message.reply("Invalid link name. Please use one of the following:\n\nFQDN")
-        else:
-            await message.reply("Please specify the key and link. Example: /set_link TUTORIAL https://t.me/c/1998895377/2184")
-    except Exception as e:
-        await message.reply(f"An error occurred: {e}")
-
