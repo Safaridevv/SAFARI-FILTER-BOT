@@ -44,15 +44,13 @@ async def stream_download(bot, query):
         _, file_id, grp_id = query.data.split('#', 2)
         user_id = query.from_user.id
         settings = await get_settings(int(grp_id))
-        username =  query.from_user.mention 
-        db_url = await db.get_setting("FQDN", default=URL)
-        print(db_url)
+        username =  query.from_user.mention
         msg = await bot.send_cached_media(
             chat_id=BIN_CHANNEL,
             file_id=file_id)
             
-        online = f"{db_url}watch/{str(msg.id)}/{quote_plus(get_name(msg))}?hash={get_hash(msg)}"
-        download = f"{db_url}{str(msg.id)}/{quote_plus(get_name(msg))}?hash={get_hash(msg)}"
+        online = f"{URL}watch/{str(msg.id)}/{quote_plus(get_name(msg))}?hash={get_hash(msg)}"
+        download = f"{URL}{str(msg.id)}/{quote_plus(get_name(msg))}?hash={get_hash(msg)}"
         non_online = await stream_site(online, grp_id)
         non_download = await stream_site(download, grp_id)
         if not await db.has_premium_access(user_id) and settings.get('stream_mode', STREAM_MODE):
