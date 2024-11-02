@@ -294,7 +294,7 @@ async def next_page(bot, query):
                         InlineKeyboardButton("𝐍𝐄𝐗𝐓 ➪", callback_data=f"next_{req}_{key}_{n_offset}")
                     ],
                 )
-        if settings["button"]:
+        if settings.get("button", SINGLE_BUTTON):
             cur_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
             time_difference = timedelta(hours=cur_time.hour, minutes=cur_time.minute, seconds=(cur_time.second+(cur_time.microsecond/1000000))) - timedelta(hours=curr_time.hour, minutes=curr_time.minute, seconds=(curr_time.second+(curr_time.microsecond/1000000)))
             remaining_seconds = "{:.2f}".format(time_difference.total_seconds())
@@ -387,7 +387,7 @@ async def language_check(bot, query):
                 btn.append(
                     [InlineKeyboardButton(text="𝐍𝐎 𝐌𝐎𝐑𝐄 𝐏𝐀𝐆𝐄𝐒 𝐀𝐕𝐀𝐈𝐋𝐀𝐁𝐋𝐄",callback_data="pages")]
                 )
-            if settings["button"]:
+            if settings.get("button", SINGLE_BUTTON):
                 cur_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
                 time_difference = timedelta(hours=cur_time.hour, minutes=cur_time.minute, seconds=(cur_time.second+(cur_time.microsecond/1000000))) - timedelta(hours=curr_time.hour, minutes=curr_time.minute, seconds=(curr_time.second+(curr_time.microsecond/1000000)))
                 remaining_seconds = "{:.2f}".format(time_difference.total_seconds())
@@ -516,7 +516,7 @@ async def quality_check(bot, query):
                 btn.append(
                     [InlineKeyboardButton(text="𝐍𝐎 𝐌𝐎𝐑𝐄 𝐏𝐀𝐆𝐄𝐒 𝐀𝐕𝐀𝐈𝐋𝐀𝐁𝐋𝐄",callback_data="pages")]
                 )
-            if settings["button"]:
+            if settings.get("button", SINGLE_BUTTON):
                 cur_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
                 time_difference = timedelta(hours=cur_time.hour, minutes=cur_time.minute, seconds=(cur_time.second+(cur_time.microsecond/1000000))) - timedelta(hours=curr_time.hour, minutes=curr_time.minute, seconds=(curr_time.second+(curr_time.microsecond/1000000)))
                 remaining_seconds = "{:.2f}".format(time_difference.total_seconds())
@@ -638,7 +638,7 @@ async def seasons_check(bot, query):
                 btn.append(
                     [InlineKeyboardButton(text="𝐍𝐎 𝐌𝐎𝐑𝐄 𝐏𝐀𝐆𝐄𝐒 𝐀𝐕𝐀𝐈𝐋𝐀𝐁𝐋𝐄",callback_data="pages")]
                 )
-            if settings["button"]:
+            if settings.get("button", SINGLE_BUTTON):
                 cur_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
                 time_difference = timedelta(hours=cur_time.hour, minutes=cur_time.minute, seconds=(cur_time.second+(cur_time.microsecond/1000000))) - timedelta(hours=curr_time.hour, minutes=curr_time.minute, seconds=(curr_time.second+(curr_time.microsecond/1000000)))
                 remaining_seconds = "{:.2f}".format(time_difference.total_seconds())
@@ -767,7 +767,7 @@ async def episode_check(bot, query):
                 btn.append(
                     [InlineKeyboardButton(text="𝐍𝐎 𝐌𝐎𝐑𝐄 𝐏𝐀𝐆𝐄𝐒 𝐀𝐕𝐀𝐈𝐋𝐀𝐁𝐋𝐄",callback_data="pages")]
                 )
-            if settings["button"]:
+            if settings.get("button", SINGLE_BUTTON):
                 cur_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
                 time_difference = timedelta(hours=cur_time.hour, minutes=cur_time.minute, seconds=(cur_time.second+(cur_time.microsecond/1000000))) - timedelta(hours=curr_time.hour, minutes=curr_time.minute, seconds=(curr_time.second+(curr_time.microsecond/1000000)))
                 remaining_seconds = "{:.2f}".format(time_difference.total_seconds())
@@ -1827,7 +1827,7 @@ async def auto_filter(client, msg, spoll=False):
         temp.GETALL[key] = files
         temp.CHAT[message.from_user.id] = message.chat.id
         temp.KEYWORD[message.from_user.id] = search
-        if not settings["button"]:
+        if not settings.get("button", SINGLE_BUTTON):
             btn = [
                 [
                     InlineKeyboardButton(
@@ -1922,12 +1922,12 @@ async def auto_filter(client, msg, spoll=False):
                 **locals()
             )
             temp.IMDB_CAP[message.from_user.id] = cap
-            if settings["button"]:
+            if settings.get("button", SINGLE_BUTTON):
                 for file in files:
                     cap += f"<b>\n\n<a href='https://telegram.me/{temp.U_NAME}?start=files_{message.chat.id}_{file.file_id}'> 📁 {get_size(file.file_size)} ▷ {file.file_name}</a></b>"
         else:
             CAPTION = f"<b>☠️ ᴛɪᴛʟᴇ : <code>{search}</code>\n📂 ᴛᴏᴛᴀʟ ꜰɪʟᴇꜱ : <code>{total_results}</code>\n📝 ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ : {message.from_user.first_name}\n⏰ ʀᴇsᴜʟᴛ ɪɴ : <code>{remaining_seconds} Sᴇᴄᴏɴᴅs</code>\n\n📚 Your Requested Files 👇\n\n</b>"
-            if not settings["button"]:
+            if not settings.get("button", SINGLE_BUTTON):
                 cap = f"{CAPTION}"
             else:
                 cap = f"{CAPTION}"
